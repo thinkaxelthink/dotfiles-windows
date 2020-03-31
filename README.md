@@ -1,8 +1,6 @@
-﻿# Jay Harris's dotfiles for Windows
+﻿# Dotfiles for Windows
 
-A collection of PowerShell files for Windows, including common application installation through `Chocolatey` and `npm`, and developer-minded Windows configuration defaults. 
-
-Are you a Mac user? Check out my [dotfiles](https://github.com/jayharris/dotfiles) repository.
+A collection of PowerShell files for Windows, including common application installation through `Chocolatey` and `npm`, and developer-minded Windows configuration defaults. This is a fork of [Jay Harris' Windows dotfiles](https://github.com:jayharris/dotfiles-windows) repository.
 
 ## Installation
 
@@ -12,7 +10,7 @@ You can clone the repository wherever you want. (I like to keep it in `~\Project
 
 From PowerShell:
 ```posh
-git clone https://github.com/jayharris/dotfiles-windows.git; cd dotfiles-windows; . .\bootstrap.ps1
+git clone https://github.com/thinkaxelthink/dotfiles-windows.git; cd dotfiles-windows; . .\bootstrap.ps1
 ```
 
 To update your settings, `cd` into your local `dotfiles-windows` repository within PowerShell and then:
@@ -30,7 +28,7 @@ Note: You must have your execution policy set to unrestricted (or at least in by
 To install these dotfiles from PowerShell without Git:
 
 ```bash
-iex ((new-object net.webclient).DownloadString('https://raw.github.com/jayharris/dotfiles-windows/master/setup/install.ps1'))
+iex ((new-object net.webclient).DownloadString('https://raw.github.com/thinkaxelthink/dotfiles-windows/master/setup/install.ps1'))
 ```
 
 To update later on, just run that command again.
@@ -42,16 +40,12 @@ If `.\extra.ps1` exists, it will be sourced along with the other files. You can 
 My `.\extra.ps1` looks something like this:
 
 ```posh
-# Hg credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-Set-Environment "EMAIL" "Jay Harris <jay@aranasoft.com>"
-
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-Set-Environment "GIT_AUTHOR_NAME" "Jay Harris","User"
+Set-Environment "GIT_AUTHOR_NAME" "{YOUR FULL NAME}","User"
 Set-Environment "GIT_COMMITTER_NAME" $env:GIT_AUTHOR_NAME
 git config --global user.name $env:GIT_AUTHOR_NAME
-Set-Environment "GIT_AUTHOR_EMAIL" "jay@aranasoft.com"
+Set-Environment "GIT_AUTHOR_EMAIL" "{EMAIL ADDRESS}"
 Set-Environment "GIT_COMMITTER_EMAIL" $env:GIT_AUTHOR_EMAIL
 git config --global user.email $env:GIT_AUTHOR_EMAIL
 ```
@@ -89,7 +83,7 @@ If you do fork for your own custom configuration, you will need to touch a few f
 
 Within `/setup/install.ps1`, modify the Repository variables.
 ```posh
-$account = "jayharris"
+$account = "thinkaxelthink"
 $repo    = "dotfiles-windows"
 $branch  = "master"
 ```
@@ -97,7 +91,7 @@ $branch  = "master"
 Within the Windows Defaults file, `/windows.ps1`, modify the Machine
 name on the first line.
 ```posh
-(Get-WmiObject Win32_ComputerSystem).Rename("MyMachineName") | Out-Null
+(Get-WmiObject Win32_ComputerSystem).Rename("{COMPUTER NAME}") | Out-Null
 ```
 
 Finally, be sure to reference your own repository in the git-free installation command.
@@ -108,14 +102,10 @@ iex ((new-object net.webclient).DownloadString('https://raw.github.com/$account/
 ## Feedback
 
 Suggestions/improvements are
-[welcome and encouraged](https://github.com/jayharris/dotfiles-windows/issues)!
+[welcome and encouraged](https://github.com/thinkaxelthink/dotfiles-windows/issues)!
 
 ## Author
 
-| [![twitter/jayharris](http://gravatar.com/avatar/1318668b99b2d5a3900f3f7758763a69?s=70)](http://twitter.com/jayharris "Follow @jayharris on Twitter") |
+| [![twitter/thinkaxelthink](https://avatars2.githubusercontent.com/u/230714?s=460&v=4)](http://twitter.com/thinkaxelthink "Follow @thinkaxelthink on Twitter") |
 |---|
-| [Jay Harris](http://twitter.com/jayharris/) |
-
-## Thanks to…
-
-* @[Mathias Bynens](http://mathiasbynens.be/) for his [OS X dotfiles](http://mths.be/dotfiles), which this repository is modeled after.
+| [Axel Esquite](http://twitter.com/thinkaxelthink/) |

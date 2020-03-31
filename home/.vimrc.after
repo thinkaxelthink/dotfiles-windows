@@ -1,4 +1,77 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+" Some kind of security thing
+set modelines=0
+
+" Default spelling language
+set spell spelllang=en_us
+
+" Set the colorscheme
 colorscheme jellybeans
+
+" Hide the toolbar
+set guioptions-=T
+
+" Hide scrollbars
+set guioptions-=r
+set go-=L
+
+" Enable syntax
+syntax enable
+
+" Automatically detect filetypes
+filetype plugin indent on
+
+" My Tab rules
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" Line number rules
+set number
+
+" Display the row and column of the cursor in the status line
+set ruler
+
+" Initially ignore cases in searches
+set ignorecase
+
+" Smart case searching. Case insensitive if all lowercase, but if you
+" provide uppercase it will force matching case
+set smartcase
+
+" Support incremental searches (searching while you type)
+set incsearch
+
+" Visually display matching braces
+set showmatch
+
+" Prevent goofy backup files
+set nobackup
+
+" Prevent the creation of swp files, they're just a mess
+set noswapfile
+
+" No bells
+set noerrorbells
+
+" Encoding
+set encoding=utf-8
+set t_Co=256
+
+" Do syntax check when the buffer is first loaded
+let g:syntastic_check_on_open=1
+let g:syntastic_delayed_redraws=1
+
+" Powerline can do its thang
+"set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline
+"let g:airline_theme='solarized'
+"let g:airline_powerline_fonts = 1
+
+" Hide .DS_Store and .git directories from Vim
+let g:netrw_list_hide='.DS_Store,^\.git/$'
 
 let NERDTreeShowHidden=1
 
